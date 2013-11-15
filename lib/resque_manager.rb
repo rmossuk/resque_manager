@@ -5,6 +5,7 @@ require 'resque_manager/overrides/resque/resque'
 require 'resque_manager/overrides/resque/job'
 require 'resque_manager/overrides/resque/failure/redis'
 if Resque.respond_to? :schedule
+  Resque::Server.tabs << 'Schedule'
   require 'resque_manager/overrides/resque_scheduler/resque_scheduler'
 end
 require 'resque-status'
